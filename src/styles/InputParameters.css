@@ -1,0 +1,27 @@
+.container{
+    background-color: rgba(0, 0, 0, 0.253);
+    
+
+}
+form{
+    max-width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .5em
+}
+form > input, form>select,form>select>option {
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 2.5em;
+    border-radius: 10px;
+    padding-left: 5px;
+
+}
+form > button{
+    min-height: 2.5em;
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 2.5em;
+    border-radius: 10px;
+}
