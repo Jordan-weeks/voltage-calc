@@ -1,14 +1,18 @@
 import React from 'react'
 import '../styles/InputParameters.css'
 import {FaBolt} from 'react-icons/fa'
+import { calculateVdPercent } from './VoltageCalculation'
 
 
 
 
-function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps, setAmps, length, setLength, handleSubmit}) {
+function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps, setAmps, length, setLength, voltageDropPercent, setVoltageDropPercent, setEndOfLineVolts, handleSubmit}) {
     const voltageDropCalc = (e) =>{
         e.preventDefault()
-        console.log("check")
+        console.log(calculateVdPercent(phase, size, volts, amps, length))
+        setVoltageDropPercent(calculateVdPercent(phase, size, volts, amps, length).vdPercent.toFixed(2))
+        setEndOfLineVolts(calculateVdPercent(phase, size, volts, amps, length).endOfLineVolts.toFixed(0))
+        
 
     }
     
@@ -28,17 +32,17 @@ function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps
         <option value="3">Three Phase</option>
     </select>
     <label htmlFor="size">Wire Sizer:</label>
-    <select name="" id="size" onChange={(e) => setSize(e.target.value)}>
-        <option value="14">14 AWG</option>
-        <option value="12">12 AWG</option>
-        <option value="10">10 AWG</option>
-        <option value="8">8 AWG</option>
-        <option value="6">6 AWG</option>
-        <option value="4">4 AWG</option>
-        <option value="3">3 AWG</option>
-        <option value="2">2 AWG</option>
-        <option value="1">1 AWG</option>
-        <option value="1/0">1/0 AWG</option>
+    <select name="" id="size" value={size} onChange={(e) => setSize(e.target.value)}>
+        <option value="3.14">14 AWG</option>
+        <option value="1.98">12 AWG</option>
+        <option value="1.24">10 AWG</option>
+        <option value=".778">8 AWG</option>
+        <option value=".491">6 AWG</option>
+        <option value=".308">4 AWG</option>
+        <option value=".245">3 AWG</option>
+        <option value=".194">2 AWG</option>
+        <option value=".154">1 AWG</option>
+        <option value=".122">1/0 AWG</option>
     </select>
     <label htmlFor="volts">Volts</label>
     <input type="text" id='volts' value={volts} onChange={(e) => setVolts(checkForNumber(e))} />

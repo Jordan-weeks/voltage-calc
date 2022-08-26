@@ -1,14 +1,14 @@
 import React from 'react'
+import { calculateVdPercent } from './VoltageCalculation'
 
 function Output(props) {
+  // calculateVdPercent(props.phase, props.size, props.volts, props.amps, props.length)
   return (
     <div>
     <p>This is where the ouput of the calculation will go: </p>
-    <p>the phase is :{props.phase}</p>
-    <p>the wire size is :{props.size}</p>
-    <p>the voltage is :{props.volts}</p>
-    <p>the amperage is :{props.amps}</p>
-    <p>the length is :{props.length}</p>
+    
+    <p>The voltage drop percent is : {props.voltageDropPercent}%</p>
+    <p>The voltage at the load will be: {props.endOfLineVolts}</p>
     
     
     </div>
