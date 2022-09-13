@@ -27,7 +27,7 @@
 
 
 export  const calculateVdPercent = (phase, size, volts, amps, length) =>{
-        let phaseNumber = phase == 1 ? 2 : 1.732 
+        let phaseNumber = phase === 1 ? 2 : 1.732 
         let conductorType = 12.9
         // let voltage = volts
 

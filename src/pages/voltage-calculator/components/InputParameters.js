@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/InputParameters.css'
+import '../InputParameters.css'
 import {FaBolt} from 'react-icons/fa'
 import { calculateVdPercent } from './VoltageCalculation'
 
