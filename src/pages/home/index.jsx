@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <Link to="/voltage-calculator">Go to voltage calculator</Link>
+    <h2>
+      Welcome to the electrician reference toolbox!
+    </h2>
   )
 }
 

@@ -15,12 +15,13 @@ const VoltageCalculator = () => {
     const [length, setLength] = useState('')
     const [voltageDropPercent, setVoltageDropPercent] = useState('')
     const [endOfLineVolts, setEndOfLineVolts] = useState('')
-    const [minSize, setMinSize] = useState('')
-    const [maxDistance, setMaxDistance] = useState('')
+    const [isSubmitted, setIsSubmitted] = useState(false)
+    // const [minSize, setMinSize] = useState('')
+    // const [maxDistance, setMaxDistance] = useState('')
 
 
   return (
-    <div>
+    <main>
     <InputParameters phase = {phase}
      setPhase= {setPhase}
      size={size}
@@ -34,8 +35,10 @@ const VoltageCalculator = () => {
      voltageDropPercent= {voltageDropPercent}
      setVoltageDropPercent = {setVoltageDropPercent}
      setEndOfLineVolts ={setEndOfLineVolts}
+     setIsSubmitted = {setIsSubmitted}
 
      />
+    {isSubmitted ? 
     <Output
     phase={phase}
     size={size}
@@ -45,7 +48,9 @@ const VoltageCalculator = () => {
     voltageDropPercent={voltageDropPercent}
     endOfLineVolts = {endOfLineVolts}
     />
-    </div>
+    : null
+    }
+    </main>
   )
 }
 

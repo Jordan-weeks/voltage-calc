@@ -1,10 +1,14 @@
+main{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 .container{
     background-color: rgba(0, 0, 0, 0.253);
-    
-
+    padding: 1em;
+    height: 100vh;
 }
 form{
-    max-width: 50%;
+    
     margin: auto;
     display: flex;
     flex-direction: column;

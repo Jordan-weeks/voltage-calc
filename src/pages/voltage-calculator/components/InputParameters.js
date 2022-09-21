@@ -1,18 +1,19 @@
 import React from 'react'
-import '../InputParameters.css'
+import '../voltage-calculator.css'
 import {FaBolt} from 'react-icons/fa'
 import { calculateVdPercent } from './VoltageCalculation'
 
 
 
 
-function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps, setAmps, length, setLength, voltageDropPercent, setVoltageDropPercent, setEndOfLineVolts, handleSubmit}) {
+function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps, setAmps, length, setLength, voltageDropPercent, setVoltageDropPercent, setEndOfLineVolts, setIsSubmitted, handleSubmit}) {
+    
     const voltageDropCalc = (e) =>{
         e.preventDefault()
         console.log(calculateVdPercent(phase, size, volts, amps, length))
         setVoltageDropPercent(calculateVdPercent(phase, size, volts, amps, length).vdPercent.toFixed(2))
         setEndOfLineVolts(calculateVdPercent(phase, size, volts, amps, length).endOfLineVolts.toFixed(0))
-        
+        setIsSubmitted(true)
 
     }
     
