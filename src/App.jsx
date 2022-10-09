@@ -31,7 +31,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path= "/voltage-calculator" element={<VoltageCalculator/>} />
-      <Route path="/tables" element={<Tables/>} />
+      <Route path="/tables/*" element={<Tables/>} />
       <Route path="/about" element={<About/>} />
     </Routes>
   </BrowserRouter>
