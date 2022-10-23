@@ -1,74 +1,69 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import React from 'react'
+import { Table, TableBody, TableHead, TableRow, TableContainer, TableCell, Paper } from '@mui/material';
+
+import './tables.css'
 
 
-function createData(rating, copper, aluminum) {
-  return { rating, copper, aluminum };
-}
+const Table250_102 = () => {
 
-const rows = [
-  createData('15 Amps', 14, 12),
-  createData('20 Amps', 12, 10),
-  createData('60 Amps', 10, 8),
-  createData('100 Amps', 8, 6),
-  createData('200 Amps', 6, 4),
-  createData('300 Amps', 4, 2),
-  createData('400 Amps', 3, 1),
-  createData('500 Amps', 2, '1/0'),
-  createData('600 Amps', 1, '2/0'),
-  createData('800 Amps', '1/0', '3/0'),
-  createData('1000 Amps', '2/0', '4/0'),
-  createData('1200 Amps', '3/0', 250),
-  createData('1600 Amps', '4/0', 350),
-  createData('2000 Amps', 250, 400),
-  createData('2500 Amps', 350, 600),
-  createData('3000 Amps', 400, 600),
-  createData('4000 Amps', 500, 750),
-  createData('5000 Amps', 700, 1200),
-  createData('6000 Amps', 800, 1200),
-];
-
-export default function Table250_102() {
-  return (
-    <TableContainer className='this-is-a-table' component={Paper} sx={{}}>
-      <Table stickyHeader >
-        <TableHead>
-          <TableRow>
-            <TableCell align={'center'} colSpan={3}>
-              NEC Table 250.122 Minimum Size Equipment Grounding Conductor
+    function createData(largestCopper, largestAluminum, copper, aluminum) {
+        return { largestCopper, largestAluminum, copper, aluminum };
+      }
+    const rows =[
+        createData("2 or smaller", "1/0 or smaller", 8, 6),
+        createData("1 or 1/0", "2/0 or 3/0", 6, 4),
+        createData("2/0 or 3/0", "4/0 or 250", 4, 2),
+        createData("Over 3/0 through 350", "Over 250 through 500", 2, "1/0"),
+        createData("Over 350 through 600", "Over 500 through 900", "1/0", "3/0"),
+        createData("Over 600 through 1100", "Over 900 through 1750", "2/0", "4/0"),
+        createData("Over 1100", "Over 1750", "3/0", 250)
+    ]    
+    return (
+        <TableContainer component={Paper}>
+            <Table>
+                <TableHead>
+                <TableRow>
+            <TableCell align={'center'} colSpan={4}>
+              NEC Table 250.102(C)(1). Grounded Conductor, Main Bonding Jumper, System Bonding Jumper, and Supply-Side Bonding Jumper for Alternating-Current Systems.
             </TableCell>
           </TableRow>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell align='center' colSpan={2}>
-              Size (AWG or KCMIL)
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell >Rating or setting of automatic overcurrent device in circuit ahead of equipment, conduit, etc. Not exceeding (Amperes)</TableCell>
-            <TableCell >Copper</TableCell>
-            <TableCell >Aluminum</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow hover
-              key={row.rating}
+                    <TableRow>
+                        <TableCell colSpan={2}>
+                        Size of  largest ungrounded conductor or equivalent area for parallel conductors.
+                        </TableCell>
+                        <TableCell colSpan={2}>
+                            Size of grounding Electrode Conductor
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            Copper
+                        </TableCell>
+                        <TableCell>
+                            Aluminum
+                        </TableCell>
+                        <TableCell>
+                            Copper
+                        </TableCell>
+                        <TableCell>
+                            Aluminum
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map((row) =>(
+                        <TableRow hover key={row.largestCopper}>
+                            <TableCell>{row.largestCopper}</TableCell>
+                            <TableCell>{row.largestAluminum}</TableCell>
+                            <TableCell>{row.copper}</TableCell>
+                            <TableCell>{row.aluminum}</TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+       
+    );
+ };
 
-            >
-              <TableCell>{row.rating}</TableCell>
-              <TableCell>{row.copper}</TableCell>
-              <TableCell>{row.aluminum}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
+export default Table250_102

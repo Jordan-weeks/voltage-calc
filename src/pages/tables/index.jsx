@@ -1,18 +1,48 @@
-import React from 'react'
-import TableGec from './TableGec'
+import React, { useState } from 'react'
+import Landing from './Landing'
 import Table250_102 from './Table250_102'
-import { Link, Routes, Route } from 'react-router-dom'
+import Table250_122 from './Table250_122'
+import Table310_15_b_16 from './T310_15_b_16/Table310_15_b_16.jsx'
+
+import { FormControl, InputLabel, Select, MenuItem  } from '@mui/material'
+import { Link, Routes, Route, useNavigate} from 'react-router-dom'
+
 
 const Tables = () => {
+
+  let navigate = useNavigate()
+  let [selectedTable, setSelectedTable] = useState('')
+  
+
+  const handleChange = (e) =>{
+    setSelectedTable(e.target.value)
+    navigate(`/tables/${e.target.value}`)
+  }
+
+
   return (
     <>
-    <span>Select a table</span>
-    <Link to="/tables/egc" > EGC</Link>
-    <Link to="/tables/gec">GEC</Link>
+    <FormControl sx={{mt:'1em'}} fullWidth >
+  <InputLabel id="demo-simple-select-label">Table</InputLabel>
+  <Select
+    labelId="selected-table"
+    id="selected-table"
+    value={selectedTable}
+    label="Table"
+    onChange={handleChange}
+  >
+    <MenuItem value='T250.122'>250.122 Minimum Size Equipment Grounding Conductor </MenuItem>
+    <MenuItem value='T250.102'>Table 250.102(C)(1)</MenuItem>
+    <MenuItem value='T310.15-b-16'>310.15(b)(16)</MenuItem>
+  </Select>
+</FormControl>
 
     <Routes>
-      <Route path="/egc" element={<Table250_102/>}/>
-      <Route path="/gec" element={<TableGec/>}/>
+      <Route path="/" element={<Landing/>}></Route>
+      <Route path="/*" element={<Landing/>}></Route>
+      <Route path="/T250.122" element={<Table250_122/>}/>
+      <Route path="/T250.102" element={<Table250_102/>}/>
+      <Route path="/T310.15-b-16" element={<Table310_15_b_16/>}/>
       
     </Routes>
 </>
