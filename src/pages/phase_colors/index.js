@@ -30,7 +30,8 @@ const PhaseColors = () => {
     }
   return (
     <>
-    <TableContainer className='phase-color-container'>
+    <div className='phase-color-container'>
+    <TableContainer >
         <Stack direction="row" spacing={.5} alignItems="center" justifyContent={'center'} mt={2} mx={1}>
             <Typography>120/208v</Typography>
             <Switch  color="default"  checked={conductorColors} onChange={changeConductorColors}></Switch>
@@ -43,7 +44,7 @@ const PhaseColors = () => {
             cFont = {cFont}
             />        
     </TableContainer>
-
+    </div>
 
     </>
         
