@@ -46,6 +46,7 @@ header>p{
 .exit{
     align-self: end;
     font-size: 30px;
+    cursor: pointer;
 }
 .link-container{
     display: flex;

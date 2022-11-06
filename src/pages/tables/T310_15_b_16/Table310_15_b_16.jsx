@@ -4,8 +4,6 @@ import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody
 
 
 import '../tables.css'
-import { create } from '@mui/material/styles/createTransitions'
-import { useEffect } from 'react'
 import T310_15_Both from './components/T310_15_Both'
 import T310_15_AL from './components/T310_15_AL'
 import T310_15_CU from './components/T310_15_CU'

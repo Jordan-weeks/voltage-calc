@@ -11,6 +11,7 @@ const Nav = ({navOpen, setNavOpen, navRef}) => {
       <Link onClick={() => setNavOpen(false)} to="voltage-calculator">Voltage Drop Calculator</Link> 
       <Link onClick={() => setNavOpen(false)} to="/tables">Tables</Link>
       <Link onClick={() => setNavOpen(false)} to="about">About</Link>
+      <Link onClick={() => setNavOpen(false)} to="phase-colors">Phase Colors</Link>
       </div>
       
     </nav>

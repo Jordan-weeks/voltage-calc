@@ -8,6 +8,7 @@ import Header from "./components/header/Header";
 import { useEffect } from "react";
 import About from "./pages/about";
 import Tables from "./pages/tables";
+import PhaseColors from "./pages/phase_colors";
 function App() {
 
   const [navOpen, setNavOpen] = useState(false)
@@ -33,6 +34,7 @@ function App() {
       <Route path= "/voltage-calculator" element={<VoltageCalculator/>} />
       <Route path="/tables/*" element={<Tables/>} />
       <Route path="/about" element={<About/>} />
+      <Route path="/phase-colors" element={<PhaseColors/>} />
     </Routes>
   </BrowserRouter>
 
