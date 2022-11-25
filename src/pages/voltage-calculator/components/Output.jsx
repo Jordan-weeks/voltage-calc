@@ -1,5 +1,4 @@
 import React from 'react'
-import { calculateVdPercent } from './VoltageCalculation'
 
 function Output(props) {
   // calculateVdPercent(props.phase, props.size, props.volts, props.amps, props.length)
