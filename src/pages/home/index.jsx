@@ -1,4 +1,4 @@
-import { Card, CardContent, CardActions, Button, Container, Typography, Link } from '@mui/material'
+import { Card, CardContent, CardActions, Container, Typography, Link } from '@mui/material'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -43,6 +43,23 @@ const Home = () => {
         </CardActions>
         <CardActions>
           <Link color ={'primary.dark'} component={RouterLink} to="/tables//T310.15-b-16">Table 310.15(b)(16)</Link>
+        </CardActions>
+        </CardContent>
+      </Card>
+
+      <Card 
+          sx={{ minWidth: 275, my:2 }}
+          elevation={3}>
+        <CardContent>
+          
+          <Typography variant="h4" component="div">
+            Other
+          </Typography>
+          <CardActions>
+          <Link color ={'primary.dark'} component={RouterLink} to="phase-colors">Phase Colors</Link> 
+          </CardActions>
+          <CardActions>
+          <Link color ={'primary.dark'} component={RouterLink} to="about">About</Link>
         </CardActions>
         </CardContent>
       </Card>

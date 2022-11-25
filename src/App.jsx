@@ -1,5 +1,3 @@
-import InputParameters from "./pages/voltage-calculator/components/InputParameters";
-import Output from "./pages/voltage-calculator/components/Output";
 import { useRef, useState } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./pages/home";
@@ -11,14 +9,10 @@ import Tables from "./pages/tables";
 import PhaseColors from "./pages/phase_colors";
 import ConduitFill from "./pages/conduit_fill";
 import {ThemeProvider, createTheme, Paper} from "@mui/material"
-import {orange, yellow, brown} from "@mui/material/colors"
 
 function App() {
 
   const theme = createTheme({
-    status: {
-      danger: orange[500],
-    },
     palette: {
       primary: {
         light: '#a98274',

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Container, Button, Modal, Box, ButtonGroup, Paper} from '@mui/material'
+import { Typography, Container, Button, Modal, Box, ButtonGroup} from '@mui/material'
 import { useState } from 'react'
 import SingleConductor from './components/SingleConductor'
 import Conduit from './Conduit'

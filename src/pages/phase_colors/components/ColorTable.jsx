@@ -1,5 +1,5 @@
 import React from 'react'
-import {TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TableFooter } from '@mui/material'
+import {Table, TableRow, TableCell, TableBody} from '@mui/material'
 
 const ColorTable = ({aColor, bColor, cColor, cFont}) => {
   return (

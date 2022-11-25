@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Landing from './Landing'
-import Table250_102 from './Table250_102'
-import Table250_122 from './Table250_122'
-import Table310_15_b_16 from './T310_15_b_16/Table310_15_b_16.jsx'
+import TABLE250_102 from './Table250_102'
+import TABLE250_122 from './Table250_122'
+import TABLE310_15_B_16 from './T310_15_b_16/Table310_15_b_16.jsx'
 
 import { FormControl, InputLabel, Select, MenuItem  } from '@mui/material'
-import { Link, Routes, Route, useNavigate} from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 
 
 const Tables = () => {
@@ -40,9 +40,9 @@ const Tables = () => {
     <Routes>
       <Route path="/" element={<Landing/>}></Route>
       <Route path="/*" element={<Landing/>}></Route>
-      <Route path="/T250.122" element={<Table250_122/>}/>
-      <Route path="/T250.102" element={<Table250_102/>}/>
-      <Route path="/T310.15-b-16" element={<Table310_15_b_16/>}/>
+      <Route path="/T250.122" element={<TABLE250_122/>}/>
+      <Route path="/T250.102" element={<TABLE250_102/>}/>
+      <Route path="/T310.15-b-16" element={<TABLE310_15_B_16/>}/>
       
     </Routes>
 </>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
-import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Switch, Stack, Typography, Checkbox } from '@mui/material'
+import { TableContainer, Paper, Switch, Stack, Typography, Checkbox } from '@mui/material'
 
 
 import '../tables.css'
-import T310_15_Both from './components/T310_15_Both'
+import T310_15_BOTH from './components/T310_15_Both'
 import T310_15_AL from './components/T310_15_AL'
 import T310_15_CU from './components/T310_15_CU'
 
@@ -25,7 +25,7 @@ const Table310_15_b_16 = () => {
   
   const rowData = () =>{
     if (bothStatus === true){
-       return <T310_15_Both/>
+       return <T310_15_BOTH/>
     }
     else{
       if(conductorType) {

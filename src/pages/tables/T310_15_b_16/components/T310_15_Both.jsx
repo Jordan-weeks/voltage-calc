@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, TableHead, TableRow, TableCell, TableBody, TableFooter } from '@mui/material'
 
-const T310_15_Both = () => {
+const T310_15_BOTH = () => {
 
 
   const createData = (size, cu60, cu75, cu90, al60, al75, al90) =>{
@@ -94,4 +94,4 @@ const T310_15_Both = () => {
   )
 }
 
-export default T310_15_Both
+export default T310_15_BOTH
