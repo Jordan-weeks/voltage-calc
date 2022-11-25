@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {TableContainer, Stack, Typography, Switch, Table, TableHead, TableRow, TableCell, TableBody, TableFooter } from '@mui/material'
+import {TableContainer, Stack, Typography, Switch } from '@mui/material'
 import ColorTable from './components/ColorTable'
 import './phase-colors.css'
 

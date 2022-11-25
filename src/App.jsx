@@ -9,7 +9,35 @@ import { useEffect } from "react";
 import About from "./pages/about";
 import Tables from "./pages/tables";
 import PhaseColors from "./pages/phase_colors";
+import ConduitFill from "./pages/conduit_fill";
+import {ThemeProvider, createTheme, Paper} from "@mui/material"
+import {orange, yellow, brown} from "@mui/material/colors"
+
 function App() {
+
+  const theme = createTheme({
+    status: {
+      danger: orange[500],
+    },
+    palette: {
+      primary: {
+        light: '#a98274',
+        main: '#795548',
+        dark: '#4b2c20',
+        contrastText: '#ffffff',
+      },
+      secondary: {
+        light: '#62727b',
+        main: '#37474f',
+        dark: '#102027',
+        contrastText: '#ffffff'
+      }
+    }
+    
+  
+
+  });
+  
 
   const [navOpen, setNavOpen] = useState(false)
 
@@ -25,18 +53,22 @@ function App() {
     
 
   return (
-    
-  <BrowserRouter>
-    <Header navOpen={navOpen} setNavOpen={setNavOpen} navRef={navRef}/>
-    
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path= "/voltage-calculator" element={<VoltageCalculator/>} />
-      <Route path="/tables/*" element={<Tables/>} />
-      <Route path="/about" element={<About/>} />
-      <Route path="/phase-colors" element={<PhaseColors/>} />
-    </Routes>
-  </BrowserRouter>
+   <ThemeProvider theme={theme}>
+    <Paper sx={{ minHeight: '100vh' }}>
+    <BrowserRouter>
+      <Header navOpen={navOpen} setNavOpen={setNavOpen} navRef={navRef}/>
+      
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path= "/voltage-calculator" element={<VoltageCalculator/>} />
+        <Route path="/tables/*" element={<Tables/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/phase-colors" element={<PhaseColors/>} />
+        <Route path="/conduit-fill" element={<ConduitFill/>} />
+      </Routes>
+    </BrowserRouter>
+    </Paper>
+  </ThemeProvider>
 
 
 
