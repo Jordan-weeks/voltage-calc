@@ -1,6 +1,5 @@
-import { Card, CardContent, CardActions, Container, Typography, Link, Stack, SvgIcon } from '@mui/material'
+import { Card, CardContent, CardActions, Container, Typography, Link, Stack } from '@mui/material'
 import React from 'react'
-import {FaCalculator} from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
 
 const Home = () => {
