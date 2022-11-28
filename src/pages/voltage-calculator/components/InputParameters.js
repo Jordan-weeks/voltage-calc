@@ -2,19 +2,24 @@ import React from 'react'
 import '../voltage-calculator.css'
 import {FaBolt} from 'react-icons/fa'
 import { calculateVdPercent } from './VoltageCalculation'
+import { Card, CardContent, FormControl, InputLabel, MenuItem, Select, Input, Button } from '@mui/material'
 
 
 
 
-function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps, setAmps, length, setLength, voltageDropPercent, setVoltageDropPercent, setEndOfLineVolts, setIsSubmitted, handleSubmit}) {
+function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps, setAmps, length, setLength, voltageDropPercent, setVoltageDropPercent, setEndOfLineVolts, setIsSubmitted, handleSubmit, setErrorModal}) {
     
-    const voltageDropCalc = (e) =>{
-        e.preventDefault()
-        console.log(calculateVdPercent(phase, size, volts, amps, length))
+    const voltageDropCalc = () =>{
         setVoltageDropPercent(calculateVdPercent(phase, size, volts, amps, length).vdPercent.toFixed(2))
         setEndOfLineVolts(calculateVdPercent(phase, size, volts, amps, length).endOfLineVolts.toFixed(0))
         setIsSubmitted(true)
 
+    }
+    const validate = () =>{
+        if( phase === '' || size === '' || volts === '' || amps === '' || length === ''){
+            setErrorModal(true)
+        }
+        else voltageDropCalc()
     }
     
     const checkForNumber = (e) =>{
@@ -24,37 +29,56 @@ function InputParameters( {phase, setPhase, size, setSize, volts, setVolts, amps
     
         
     return (
-    <div className='container'>
-    <form onSubmit={voltageDropCalc}>
-    <h1>Input Parameters</h1>
-    <label htmlFor="phase">Selet phase:</label>
-    <select id='phase' value={phase} onChange={(e) => setPhase(e.target.value)}>
-        <option value="1">Single Phase </option>
-        <option value="3">Three Phase</option>
-    </select>
-    <label htmlFor="size">Wire Sizer:</label>
-    <select name="" id="size" value={size} onChange={(e) => setSize(e.target.value)}>
-        <option value="3.14">14 AWG</option>
-        <option value="1.98">12 AWG</option>
-        <option value="1.24">10 AWG</option>
-        <option value=".778">8 AWG</option>
-        <option value=".491">6 AWG</option>
-        <option value=".308">4 AWG</option>
-        <option value=".245">3 AWG</option>
-        <option value=".194">2 AWG</option>
-        <option value=".154">1 AWG</option>
-        <option value=".122">1/0 AWG</option>
-    </select>
-    <label htmlFor="volts">Volts</label>
-    <input type="text" id='volts' value={volts} onChange={(e) => setVolts(checkForNumber(e))} />
-    <label htmlFor="amps">Current at end of cable</label>
-    <input type="text" name="" id="amps" value={amps} onChange={(e) => setAmps(checkForNumber(e))} />
-    <label htmlFor="length">Total length of cable</label>
-    <input type="text" name="" id="length" value={length} onChange={(e) => setLength(checkForNumber(e))} />
-    <button><FaBolt/> Calculate <FaBolt/></button>
-    </form>
-    </div>
-  )
+        <Card 
+        sx={{mt:2}}
+        elevation={4}>
+            <CardContent>
+            <FormControl required fullWidth sx={{my:1.5}}>
+                <InputLabel>Phase</InputLabel>
+                <Select label={"phase"} value = {phase} onChange={(e) =>setPhase(e.target.value)}> 
+                    <MenuItem value={"1"}>Single Phase</MenuItem>
+                    <MenuItem value={"3"}>Three Phase</MenuItem>
+                </Select>
+                
+            </FormControl>
+            <FormControl required fullWidth sx={{my:1.5}}>
+            <InputLabel>Wire Size</InputLabel>
+                <Select label={'Wire Size'}value={size} onChange={(e) => setSize(e.target.value)}>
+                    <MenuItem value="3.14">14 AWG</MenuItem>
+                    <MenuItem value="1.98">12 AWG</MenuItem>
+                    <MenuItem value="1.24">10 AWG</MenuItem>
+                    <MenuItem value=".778">8 AWG</MenuItem>
+                    <MenuItem value=".491">6 AWG</MenuItem>
+                    <MenuItem value=".308">4 AWG</MenuItem>
+                    <MenuItem value=".245">3 AWG</MenuItem>
+                    <MenuItem value=".194">2 AWG</MenuItem>
+                    <MenuItem value=".154">1 AWG</MenuItem>
+                    <MenuItem value=".122">1/0 AWG</MenuItem>
+                </Select>
+            </FormControl>
+            <FormControl required fullWidth sx={{my:1.5}}>
+                <InputLabel>Volts</InputLabel>
+                <Input label={'Volts'} value={volts} onChange={(e) => setVolts(checkForNumber(e))}></Input>
+            </FormControl>
+            <FormControl required fullWidth sx={{my:1.5}}>
+                <InputLabel>Amps</InputLabel>
+                <Input label='Amps' value={amps} onChange={(e) => setAmps(checkForNumber(e))}></Input>
+            </FormControl>
+            <FormControl required fullWidth sx={{my:1.5}}>
+                <InputLabel>Length (in feet)</InputLabel>
+                <Input label='Length' value={length} onChange={(e) => setLength(checkForNumber(e))}></Input>
+            </FormControl>
+            <Button 
+            variant={'contained'} 
+            color={'secondary'}
+            sx={{my:1}}
+            onClick={validate}
+            >
+            <FaBolt/>  Calculate <FaBolt/>
+        </Button>
+            </CardContent>
+        </Card>
+    )
 }
 
 export default InputParameters

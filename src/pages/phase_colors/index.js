@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {TableContainer, Stack, Typography, Switch } from '@mui/material'
+import {TableContainer, Stack, Typography, Switch, Container } from '@mui/material'
 import ColorTable from './components/ColorTable'
 import './phase-colors.css'
 
@@ -30,7 +30,7 @@ const PhaseColors = () => {
     }
   return (
     <>
-    <div className='phase-color-container'>
+    <Container>
     <TableContainer >
         <Stack direction="row" spacing={.5} alignItems="center" justifyContent={'center'} mt={2} mx={1}>
             <Typography>120/208v</Typography>
@@ -44,7 +44,7 @@ const PhaseColors = () => {
             cFont = {cFont}
             />        
     </TableContainer>
-    </div>
+    </Container>
 
     </>
         

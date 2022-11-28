@@ -4,7 +4,7 @@ import TABLE250_102 from './Table250_102'
 import TABLE250_122 from './Table250_122'
 import TABLE310_15_B_16 from './T310_15_b_16/Table310_15_b_16.jsx'
 
-import { FormControl, InputLabel, Select, MenuItem  } from '@mui/material'
+import { FormControl, InputLabel, Select, MenuItem, Container  } from '@mui/material'
 import { Routes, Route, useNavigate} from 'react-router-dom'
 
 
@@ -21,7 +21,7 @@ const Tables = () => {
 
 
   return (
-    <>
+    <Container>
     <FormControl sx={{mt:'1em'}} fullWidth >
   <InputLabel id="demo-simple-select-label">Table</InputLabel>
   <Select
@@ -31,9 +31,9 @@ const Tables = () => {
     label="Table"
     onChange={handleChange}
   >
-    <MenuItem value='T250.122'>250.122 Minimum Size Equipment Grounding Conductor </MenuItem>
-    <MenuItem value='T250.102'>Table 250.102(C)(1)</MenuItem>
-    <MenuItem value='T310.15-b-16'>310.15(b)(16)</MenuItem>
+    <MenuItem value='T250.102'>T250.102(C)(1) Grounded Conductor</MenuItem>
+    <MenuItem value='T250.122'>T250.122 Minimum Size Equipment Grounding Conductor </MenuItem>
+    <MenuItem value='T310.15-b-16'>T310.15(b)(16) Conductor Ampacities</MenuItem>
   </Select>
 </FormControl>
 
@@ -45,7 +45,7 @@ const Tables = () => {
       <Route path="/T310.15-b-16" element={<TABLE310_15_B_16/>}/>
       
     </Routes>
-</>
+</Container>
     
   )
 }

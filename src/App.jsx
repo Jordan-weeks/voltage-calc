@@ -8,6 +8,7 @@ import About from "./pages/about";
 import Tables from "./pages/tables";
 import PhaseColors from "./pages/phase_colors";
 import ConduitFill from "./pages/conduit_fill";
+import Contact from "./pages/contact";
 import {ThemeProvider, createTheme, Paper} from "@mui/material"
 
 function App() {
@@ -32,8 +33,7 @@ function App() {
 
   });
   
-
-  const [navOpen, setNavOpen] = useState(false)
+const [navOpen, setNavOpen] = useState(false)
 
   let navRef = useRef()
   useEffect(() =>{
@@ -50,8 +50,7 @@ function App() {
    <ThemeProvider theme={theme}>
     <Paper sx={{ minHeight: '100vh' }}>
     <BrowserRouter>
-      <Header navOpen={navOpen} setNavOpen={setNavOpen} navRef={navRef}/>
-      
+      <Header navOpen={navOpen} setNavOpen={setNavOpen} navRef={navRef}/>      
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path= "/voltage-calculator" element={<VoltageCalculator/>} />
@@ -59,14 +58,11 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/phase-colors" element={<PhaseColors/>} />
         <Route path="/conduit-fill" element={<ConduitFill/>} />
+        <Route path="/contact" element={<Contact/>} />
       </Routes>
     </BrowserRouter>
     </Paper>
-  </ThemeProvider>
-
-
-
-    
+  </ThemeProvider>    
   );
 }
 

@@ -45,9 +45,6 @@ const testConductors = [
             id: id
         }
         setConductors([...conductors, blankConductor])
-        // setTimeout(() => {
-        //     window.scrollTo({top: 1000000, left: 0, behavior: 'smooth'})
-        // }, 1000);
         
     }
 
@@ -56,10 +53,7 @@ const testConductors = [
         setTotalConduitArea(findConduitArea(conduitType))
         setDisplayOutput(true)
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
-        
-        //determine conduit fill %
-
-        // console.log(conductors)
+     
     }
     const resetBtn = () =>{
         setConductors(testConductors)
