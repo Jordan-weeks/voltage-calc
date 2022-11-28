@@ -19,6 +19,7 @@ header>p{
 }
 
 .nav-menu{
+    font-size: 30px;
     box-sizing: border-box;
     padding-top: .5em;
     height: 100vh;

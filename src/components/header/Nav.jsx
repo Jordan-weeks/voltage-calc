@@ -9,10 +9,10 @@ const Nav = ({navOpen, setNavOpen, navRef}) => {
       <div className="link-container">
       <Link onClick={() => setNavOpen(false)} to="/">Home</Link>
       <Link onClick={() => setNavOpen(false)} to="voltage-calculator">Voltage Drop Calculator</Link> 
-      <Link onClick={() => setNavOpen(false)} to="/tables">Tables</Link>
-      <Link onClick={() => setNavOpen(false)} to="about">About</Link>
-      <Link onClick={() => setNavOpen(false)} to="phase-colors">Phase Colors</Link>
       <Link onClick={() => setNavOpen(false)} to="conduit-fill">Conduit Fill</Link>
+      <Link onClick={() => setNavOpen(false)} to="/tables">Tables</Link>
+      <Link onClick={() => setNavOpen(false)} to="phase-colors">Phase Colors</Link>
+      <Link onClick={() => setNavOpen(false)} to="about">About</Link>
       </div>
       
     </nav>
