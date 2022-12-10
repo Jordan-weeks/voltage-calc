@@ -6,7 +6,7 @@ const Home = () => {
   return (
 
     <Container>
-      <Typography color={'secondary.dark'} variant="h3" sx={{textAlign: 'center'}}>Online References Built For Electricians.</Typography>
+      <Typography color={'secondary.dark'} variant="h3" sx={{textAlign: 'center'}}>Online References Built For Electricians</Typography>
       <Container>
 
         <Card 
