@@ -1,13 +1,23 @@
-import { FormControl, Paper, TextField, Typography, Button } from '@mui/material'
+import { FormControl, Paper, TextField, Typography, Button, Modal, Box } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send';
 import { Container } from '@mui/system'
 import React from 'react'
 import { useState,  } from 'react';
+import {formValidation} from './formValidation.js'
 
 
 const Contact = () => {
   const initialValues = { name: "", email: "", message: "" }
   const [form, setForm] = useState(initialValues)
+  const [errorModal , setErrorModal] = useState({status:false, message:''})
+  const [successModal , setSuccessModal] = useState(false)
+  
+  const handleErrorClose = () =>{
+      setErrorModal({status:false, message:''})
+    }
+    const handleSuccessClose=() =>{
+      setSuccessModal(false)
+    }
 
   const handleChange = e => setForm({...form, [e.target.name]: e.target.value });
   
@@ -16,22 +26,75 @@ const Contact = () => {
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
         .join("&");
   }
-  
-  const handleFormSubmit = e => {
+  const checkForm = () =>{
+    formValidation(form,setErrorModal,setSuccessModal,submitForm)
+  }
+  const submitForm = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...form })
     })
-      .then(() => alert("Success!"))
+      .then(() => setForm(initialValues))
       .catch(error => alert(error));
 
-    e.preventDefault();
+    
   };
-
+  
 
   return (
     <Paper sx={{minHeight: '100vh'}}>
+      {/* Success modal */}
+      <Modal
+        open={successModal}
+        onClose={handleSuccessClose}
+        aria-labelledby="error"
+      >
+        <Box sx={{
+            position: 'absolute',
+            top: '20%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '75vw',
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,p: 4,
+            }}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Success!
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Thank you for your feedback!
+          </Typography>
+          <Button onClick = {handleSuccessClose}>Close</Button>
+        </Box>
+      </Modal>
+      {/* Error modal */}
+      <Modal
+        open={errorModal.status}
+        onClose={handleErrorClose}
+        aria-labelledby="error"
+      >
+        <Box sx={{
+            position: 'absolute',
+            top: '20%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '75vw',
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,p: 4,
+            }}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Error!
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {errorModal.message}
+          </Typography>
+          <Button onClick = {handleErrorClose}>Close</Button>
+        </Box>
+      </Modal>
+
       <Typography variant={"h4"} sx={{textAlign: 'center'}}>Feedback...</Typography>
       {/* <input type="hidden" name="form-name" value="contact" /> */}
       <Container>
@@ -43,7 +106,7 @@ const Contact = () => {
         </FormControl>
           <Button 
             color={'secondary'}
-            onClick={handleFormSubmit}
+            onClick={checkForm}
             sx={{mt:2}} variant="contained" endIcon={<SendIcon />}>
           Send
           </Button>
