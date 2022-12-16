@@ -52,7 +52,7 @@ const Home = () => {
           <Link color ={'primary.dark'} component={RouterLink} to="/tables/T250.102">Table 250.102</Link>
         </CardActions>
         <CardActions>
-          <Link color ={'primary.dark'} component={RouterLink} to="/tables//T310.15-b-16">Table 310.15(b)(16)</Link>
+          <Link color ={'primary.dark'} component={RouterLink} to="/tables/T310.15-b-16">Table 310.15(b)(16)</Link>
         </CardActions>
         </CardContent>
       </Card>
